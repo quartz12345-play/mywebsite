@@ -187,4 +187,47 @@
             document.getElementById('modalTitle').innerText = mode === 'signup' ? 'Create Your Account' : 'Welcome Back';
         }
         function closeAuthModal() {
-            document
+            document.getElementById('authModal').classList.add('hidden');
+        }
+
+        function handleAuth() {
+            const email = document.getElementById('userEmail').value;
+            if(!email) return alert('Please enter your email!');
+            localStorage.setItem('clarityUser', email);
+            alert('Successfully logged in as ' + email + '!');
+            closeAuthModal();
+            document.getElementById('authNavArea').innerHTML = `
+                <span class="text-sm text-emerald-400 font-medium">👤 ${email}</span>
+            `;
+        }
+
+        // Check if logged in already
+        window.onload = function() {
+            const savedUser = localStorage.getItem('clarityUser');
+            if(savedUser) {
+                document.getElementById('authNavArea').innerHTML = `
+                    <span class="text-sm text-emerald-400 font-medium">👤 ${savedUser}</span>
+                `;
+            }
+        }
+
+        // Generator Logic
+        function generateScope() {
+            const val = document.getElementById('projectInput').value;
+            if(!val) return alert('Please enter a project description!');
+            
+            const resultBox = document.getElementById('resultBox');
+            const output = document.getElementById('outputContent');
+            resultBox.style.display = 'block';
+            
+            output.innerHTML = `
+                <p><strong>🎯 Project Scope:</strong> ${val}</p>
+                <p><strong>⏱️ Estimated Timeline:</strong> 3 - 4 Weeks Delivery</p>
+                <p><strong>💵 Suggested Pricing:</strong> $3,800 - $6,500</p>
+                <p><strong>📋 Key Milestones:</strong> Research & Wireframing → UI Design & Development → Client Review & Launch</p>
+                <p style="color: #34d399; margin-top: 12px; font-weight: 500;">✓ Proposal structured successfully. Ready to send to client!</p>
+            `;
+        }
+    </script>
+</body>
+</html>
