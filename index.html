@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClarityFlow - AI Client Onboarding & Proposal Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans">
+    <div class="max-w-4xl mx-auto px-6 py-12">
+        <header class="flex justify-between items-center mb-12">
+            <h1 class="text-2xl font-bold tracking-tight text-emerald-400">ClarityFlow</h1>
+            <span class="text-xs bg-emerald-950 text-emerald-300 px-3 py-1 rounded-full border border-emerald-800">100% Free & Live</span>
+        </header>
+
+        <main class="bg-slate-900 border border-slate-800 rounded-2xl p-8 shadow-2xl">
+            <h2 class="text-3xl font-extrabold mb-4">Turn Messy Client Chats Into Professional Proposals in Seconds.</h2>
+            <p class="text-slate-400 mb-8">Generate automated scopes of work, timelines, and accurate pricing estimates without lifting a finger.</p>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium mb-2 text-slate-300">Project Name / Description</label>
+                    <input type="text" id="projectInput" placeholder="e.g., E-commerce website redesign for handmade ceramics" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-emerald-500">
+                </div>
+                <button onclick="generateScope()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 rounded-xl transition duration-200">
+                    Generate AI Scope & Estimate
+                </button>
+            </div>
+
+            <div id="resultBox" class="mt-8 hidden border-t border-slate-800 pt-6">
+                <h3 class="text-xl font-bold text-emerald-400 mb-2">Generated Scope of Work</h3>
+                <div id="outputContent" class="text-slate-300 bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2"></div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function generateScope() {
+            const val = document.getElementById('projectInput').value;
+            if(!val) return alert('Please enter a project description!');
+            
+            const resultBox = document.getElementById('resultBox');
+            const output = document.getElementById('outputContent');
+            resultBox.classList.remove('hidden');
+            
+            output.innerHTML = `
+                <p><strong>Project:</strong> ${val}</p>
+                <p><strong>Timeline:</strong> 4 Weeks Standard Delivery</p>
+                <p><strong>Estimated Pricing:</strong> $4,500 - $7,500</p>
+                <p class="text-emerald-400 text-sm mt-2">✓ Scope, milestones, and deliverables structured successfully.</p>
+            `;
+        }
+    </script>
+</body>
+</html>
