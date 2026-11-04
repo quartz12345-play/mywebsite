@@ -24,9 +24,12 @@
                 <a href="#demo" class="hover:text-emerald-400 transition">Live Demo</a>
                 <a href="#pricing" class="hover:text-emerald-400 transition">Pricing</a>
             </div>
-            <a href="#demo" class="bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition shadow-lg shadow-emerald-900/30">
-                Get Started Free
-            </a>
+            <div class="flex items-center gap-4">
+                <div id="authNavArea">
+                    <button onclick="openAuthModal('signin')" class="text-sm text-slate-300 hover:text-white px-4 py-2 transition">Sign In</button>
+                    <button onclick="openAuthModal('signup')" class="bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition shadow-lg shadow-emerald-900/30">Get Started</button>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -73,7 +76,7 @@
                 </button>
             </div>
 
-            <div id="resultBox" class="mt-8 hidden border-t border-slate-800/80 pt-6 animate-fadeIn">
+            <div id="resultBox" class="mt-8 hidden border-t border-slate-800/80 pt-6">
                 <h3 class="text-xl font-bold text-emerald-400 mb-4 flex items-center gap-2">
                     <span>✓</span> Generated Scope of Work
                 </h3>
@@ -82,36 +85,11 @@
         </div>
     </section>
 
-    <!-- Features Section (Scroll Reveal) -->
-    <section id="features" class="py-24 px-6 max-w-6xl mx-auto reveal">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Everything You Need to Scale</h2>
-            <p class="text-slate-400 max-w-xl mx-auto">Designed to save you 10+ hours a week on client onboarding and scoping.</p>
-        </div>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-slate-900/50 border border-slate-800/80 p-8 rounded-2xl hover:border-emerald-500/50 transition">
-                <div class="w-12 h-12 bg-emerald-950 text-emerald-400 rounded-xl flex items-center justify-center text-xl mb-6 border border-emerald-800">🚀</div>
-                <h3 class="text-xl font-bold mb-3">Instant Scoping</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">Convert messy client inputs into structured milestones and deliverables instantly.</p>
-            </div>
-            <div class="bg-slate-900/50 border border-slate-800/80 p-8 rounded-2xl hover:border-emerald-500/50 transition">
-                <div class="w-12 h-12 bg-emerald-950 text-emerald-400 rounded-xl flex items-center justify-center text-xl mb-6 border border-emerald-800">💰</div>
-                <h3 class="text-xl font-bold mb-3">Smart Pricing</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">Never underprice your work again with automated value-based pricing estimates.</p>
-            </div>
-            <div class="bg-slate-900/50 border border-slate-800/80 p-8 rounded-2xl hover:border-emerald-500/50 transition">
-                <div class="w-12 h-12 bg-emerald-950 text-emerald-400 rounded-xl flex items-center justify-center text-xl mb-6 border border-emerald-800">🔗</div>
-                <h3 class="text-xl font-bold mb-3">Ready-to-Share Links</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">Send a clean, professional web link directly to your clients for approval.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
+    <!-- Pricing Section with Your Live Stripe Links -->
     <section id="pricing" class="py-24 px-6 max-w-5xl mx-auto reveal">
         <div class="text-center mb-16">
             <h2 class="text-3xl md:text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
-            <p class="text-slate-400">Start free, upgrade when you grow your agency.</p>
+            <p class="text-slate-400">Start free, upgrade when you grow your agency. Payments processed securely via Stripe.</p>
         </div>
         <div class="grid md:grid-cols-3 gap-8">
             <div class="bg-slate-900/40 border border-slate-800 rounded-3xl p-8 flex flex-col justify-between">
@@ -124,14 +102,14 @@
                         <li>✓ Public intake link</li>
                     </ul>
                 </div>
-                <a href="#demo" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3 rounded-xl text-center transition">Get Started</a>
+                <button onclick="openAuthModal('signup')" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3 rounded-xl text-center transition">Get Started</button>
             </div>
 
             <div class="bg-gradient-to-b from-emerald-950/40 to-slate-900 border-2 border-emerald-500/50 rounded-3xl p-8 flex flex-col justify-between relative shadow-2xl">
                 <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-emerald-500 text-slate-950 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Most Popular</span>
                 <div>
                     <h3 class="text-lg font-semibold text-emerald-400 mb-2">Pro Agency</h3>
-                    <div class="text-3xl font-extrabold mb-6">$29 <span class="text-sm font-normal text-slate-400">/mo</span></div>
+                    <div class="text-3xl font-extrabold mb-6">29 AED <span class="text-sm font-normal text-slate-400">/mo</span></div>
                     <ul class="space-y-3 text-sm text-slate-300 mb-8">
                         <li>✓ Unlimited proposals</li>
                         <li>✓ Advanced AI customization</li>
@@ -139,13 +117,14 @@
                         <li>✓ Priority support</li>
                     </ul>
                 </div>
-                <a href="#demo" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 rounded-xl text-center transition shadow-lg shadow-emerald-900/40">Start Free Trial</a>
+                <!-- Your Live Pro Payment Link -->
+                <a href="https://buy.stripe.com/test_5kA5lf86E20a67S8wx" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 rounded-xl text-center transition shadow-lg shadow-emerald-900/40 block">Upgrade to Pro</a>
             </div>
 
             <div class="bg-slate-900/40 border border-slate-800 rounded-3xl p-8 flex flex-col justify-between">
                 <div>
                     <h3 class="text-lg font-semibold text-slate-300 mb-2">Enterprise</h3>
-                    <div class="text-3xl font-extrabold mb-6">$79 <span class="text-sm font-normal text-slate-400">/mo</span></div>
+                    <div class="text-3xl font-extrabold mb-6">79 AED <span class="text-sm font-normal text-slate-400">/mo</span></div>
                     <ul class="space-y-3 text-sm text-slate-300 mb-8">
                         <li>✓ Multi-user team seats</li>
                         <li>✓ CRM integrations</li>
@@ -153,19 +132,41 @@
                         <li>✓ Dedicated account manager</li>
                     </ul>
                 </div>
-                <a href="#demo" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3 rounded-xl text-center transition">Contact Sales</a>
+                <!-- Your Live Enterprise Payment Link -->
+                <a href="https://buy.stripe.com/test_14kcO186E92y1R69AA" target="_blank" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3 rounded-xl text-center transition block">Upgrade to Enterprise</a>
             </div>
         </div>
     </section>
+
+    <!-- Auth Modal Popup -->
+    <div id="authModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-md w-full p-8 relative shadow-2xl">
+            <button onclick="closeAuthModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white text-xl">✕</button>
+            <h3 id="modalTitle" class="text-2xl font-bold mb-2">Welcome Back</h3>
+            <p class="text-slate-400 text-sm mb-6">Access your ClarityFlow dashboard.</p>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium mb-2 text-slate-300">Email Address</label>
+                    <input type="email" id="userEmail" placeholder="you@agency.com" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-emerald-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2 text-slate-300">Password</label>
+                    <input type="password" id="userPass" placeholder="••••••••" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-emerald-500">
+                </div>
+                <button onclick="handleAuth()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 rounded-xl transition">Continue</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="border-t border-slate-900 py-12 text-center text-sm text-slate-500">
         <p>&copy; 2026 ClarityFlow. All rights reserved. Built with 100% free automation.</p>
     </footer>
 
-    <!-- JavaScript for Animations and App Logic -->
+    <!-- JavaScript -->
     <script>
-        // Scroll Reveal Effect
+        // Scroll Reveal
         function reveal() {
             var reveals = document.querySelectorAll('.reveal');
             for (var i = 0; i < reveals.length; i++) {
@@ -178,9 +179,39 @@
             }
         }
         window.addEventListener('scroll', reveal);
-        reveal(); // Trigger on load
+        reveal();
 
-        // AI Scope Generator Logic
+        // Modal Controls
+        function openAuthModal(mode) {
+            document.getElementById('authModal').classList.remove('hidden');
+            document.getElementById('modalTitle').innerText = mode === 'signup' ? 'Create Your Account' : 'Welcome Back';
+        }
+        function closeAuthModal() {
+            document.getElementById('authModal').classList.add('hidden');
+        }
+
+        function handleAuth() {
+            const email = document.getElementById('userEmail').value;
+            if(!email) return alert('Please enter your email!');
+            localStorage.setItem('clarityUser', email);
+            alert('Successfully logged in as ' + email + '!');
+            closeAuthModal();
+            document.getElementById('authNavArea').innerHTML = `
+                <span class="text-sm text-emerald-400 font-medium">👤 ${email}</span>
+            `;
+        }
+
+        // Check if logged in already
+        window.onload = function() {
+            const savedUser = localStorage.getItem('clarityUser');
+            if(savedUser) {
+                document.getElementById('authNavArea').innerHTML = `
+                    <span class="text-sm text-emerald-400 font-medium">👤 ${savedUser}</span>
+                `;
+            }
+        }
+
+        // Generator Logic
         function generateScope() {
             const val = document.getElementById('projectInput').value;
             if(!val) return alert('Please enter a project description!');
